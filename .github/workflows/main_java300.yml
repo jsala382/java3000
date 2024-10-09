@@ -29,7 +29,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: build/app/outputs/flutter-apk/app-debug.apk
+          path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,9 +49,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_AA22D826BDCA4BAB8D33BF9F8136E9F3 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_D7605AD2F5D14DB8919CC80D2DFB7300 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DD9C6F3408AA4A0294668EEE4B39952F }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_ACB6F2914FBC4E96B8E80C3A74406A10 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_2646D2304E3549A38C2480F1970AF04B }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_8952ED546FDB45E6BDDD641D138BD325 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
